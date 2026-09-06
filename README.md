@@ -40,6 +40,18 @@ python scripts/train.py --env atari --game Pong --episodes 2000
 python scripts/evaluate.py --checkpoint checkpoints/brain_pong.pt --env atari --game Pong
 ```
 
+## Supported Environments
+
+- **GridWorld**: included, CPU-friendly, and useful for development and tests.
+- **Atari**: included through Gymnasium and ALE; requires the `atari` extra and
+    an installed game ROM. The published benchmark in this repository uses
+    Breakout on CUDA.
+- **Custom environments**: implement the `BrainEnv` interface described below.
+
+The repository includes code for Pong and other Atari games, but the published
+result currently documents the Breakout benchmark only. Results should not be
+interpreted as validated performance for every supported game.
+
 ## PyPI Release
 
 ```bash
@@ -216,7 +228,7 @@ infant-brain/
 │   ├── train_all_games.py    # Multi-game GPU training
 │   ├── evaluate.py           # Evaluation
 │   └── setup_gpu.sh          # Cloud GPU setup
-└── checkpoints/              # Saved brains
+└── results/                  # Reproducible benchmark data and figures
 ```
 
 ## License
