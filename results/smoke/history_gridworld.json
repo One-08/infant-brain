@@ -1,0 +1,1 @@
+{"episode": [0], "wm_loss": [1.987104892730713], "lang_loss": [0.0], "reward": [0.0], "grpo_loss": [0.0], "curiosity_actions": [500], "plan_actions": [0], "corrections": [0], "tree_size": [6], "wellbeing": [0.0], "competence": [0.0], "word_diversity": [0], "best_eval_score": [], "best_eval_ep": []}

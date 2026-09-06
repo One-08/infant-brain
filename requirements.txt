@@ -1,0 +1,7 @@
+torch>=2.0
+numpy>=1.24
+Pillow>=9.0
+pyyaml>=6.0
+matplotlib>=3.7
+gymnasium[atari]>=0.29
+ale-py>=0.9

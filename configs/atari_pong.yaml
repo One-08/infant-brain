@@ -1,0 +1,23 @@
+env:
+  type: atari
+  game: Pong
+  frameskip: 4
+
+brain:
+  latent_dim: 32
+  hidden_dim: 256
+  n_concepts: 6
+
+training:
+  episodes: 2000
+  max_steps: 500
+  batch_size: 64
+  buffer_size: 100000
+  curiosity_rate: 0.2
+  plan_every: 20
+  plan_len: 5
+  k_plans: 4
+  cluster_every: 100
+  sleep_every: 200
+  check_every: 50
+  seed: 42
