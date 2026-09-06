@@ -131,6 +131,27 @@ python scripts/train.py --config configs/gpu_full.yaml --device cuda
 | MsPacman      | 5,000      | 200-400x             | ~35 min     |
 | 10 games      | 5,000 each | varies               | ~5 hours    |
 
+## Breakout Benchmark
+
+This benchmark compares the complete system with ablations over 200 Breakout
+episodes on CUDA. Each line is the smoothed episode reward; higher values mean
+the agent collected more reward in the game.
+
+![Breakout benchmark](results/benchmark/proof_benchmark.png)
+
+The comparison is:
+
+- **Full Brain**: all modules enabled.
+- **Full Brain (s2)**: a second run of the complete system with a different
+    seed.
+- **Baseline**: the reference configuration.
+- **No Stages**, **No Intuition**, and **No Slots**: ablations with one
+    subsystem removed.
+
+The JSON files containing the raw episode rewards are in
+[`results/benchmark`](results/benchmark). The chart is descriptive evidence
+from this run, not a guarantee of performance on every game or hardware setup.
+
 
 ## Using as a Library
 
