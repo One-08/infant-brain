@@ -9,7 +9,7 @@ A self-learning AI that grows like a child. Seven neural modules work together t
 | --- | ------------------ | --------------------------------------------- |
 | 1   | **World Model**    | Learns physics from pixels (JEPA + SIGReg)    |
 | 2   | **Curiosity**      | Explores what's surprising                    |
-| 3   | **Metacognition**  | Knows what it knows and doesn't know          |
+| 3   | **Metacognition**  | Tracks competence and uses the Intuition Gate |
 | 4   | **Language**       | Grounds words in visual experience            |
 | 5   | **Values**         | Internal feedback signals guide learning      |
 | 6   | **Memory + Sleep** | Stores experiences, consolidates during sleep |
@@ -51,6 +51,15 @@ python scripts/evaluate.py --checkpoint checkpoints/brain_pong.pt --env atari --
 The repository includes code for Pong and other Atari games, but the published
 result currently documents the Breakout benchmark only. Results should not be
 interpreted as validated performance for every supported game.
+
+### Curiosity and intuition
+
+These names refer to different mechanisms. **Curiosity** is the adaptive
+exploration drive implemented by the value system and count-based surprise
+bonus. **Intuition** is the `IntuitionGate` self-monitoring module: it decides
+whether the brain should learn from the current transition and tracks internal
+health signals. The intuition gate supports metacognition; it is not a second
+name for curiosity.
 
 ## PyPI Release
 

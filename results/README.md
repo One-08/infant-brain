@@ -24,3 +24,6 @@ traces and chart are here:
   [no_intuition.json](benchmark/no_intuition.json),
   [no_slots.json](benchmark/no_slots.json), and
   [no_stages.json](benchmark/no_stages.json)
+
+In this comparison, **No Intuition** disables the self-monitoring
+`IntuitionGate`; it does not remove the separate curiosity exploration drive.
