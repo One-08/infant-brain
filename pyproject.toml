@@ -9,7 +9,7 @@ description = "A self-learning AI that grows like a child — 7 neural modules l
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.9"
-keywords = ["reinforcement-learning", "world-model", "pytorch", "atari", "self-supervised-learning"]
+keywords = ["reinforcement-learning", "world-model", "self-supervised-learning", "pytorch", "atari", "artificial-intelligence"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
