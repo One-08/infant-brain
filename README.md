@@ -13,7 +13,7 @@ A self-learning AI that grows like a child. Seven neural modules work together t
 | 4   | **Language**       | Grounds words in visual experience            |
 | 5   | **Values**         | Internal feedback signals guide learning      |
 | 6   | **Memory + Sleep** | Stores experiences, consolidates during sleep |
-| 7   | **Reasoning**      | Plans multi-step actions with GRPO            |
+| 7   | **Reasoning**      | Plans with imagined rollouts and actor-critic learning |
 
 
 ## Quick Start
@@ -132,22 +132,28 @@ python scripts/train_all_games.py --device cuda --episodes 5000
 python scripts/train.py --config configs/gpu_full.yaml --device cuda
 ```
 
-### 4. Expected GPU Results
+### 4. Projected GPU Runtime and Unverified Targets
+
+The entries below are planning estimates, not measured results. They should not
+be presented as achieved performance until the runs are completed and reported
+across multiple seeds.
 
 
-| Game          | Episodes   | Expected Improvement | Time (A100) |
+| Game          | Episodes   | Target status        | Time (A100) |
 | ------------- | ---------- | -------------------- | ----------- |
-| Pong          | 5,000      | 500-1000x            | ~30 min     |
-| Breakout      | 5,000      | 300-500x             | ~30 min     |
-| SpaceInvaders | 5,000      | 50-100x              | ~30 min     |
-| MsPacman      | 5,000      | 200-400x             | ~35 min     |
-| 10 games      | 5,000 each | varies               | ~5 hours    |
+| Pong          | 5,000      | Not measured         | ~30 min     |
+| Breakout      | 5,000      | Not measured         | ~30 min     |
+| SpaceInvaders | 5,000      | Not measured         | ~30 min     |
+| MsPacman      | 5,000      | Not measured         | ~35 min     |
+| 10 games      | 5,000 each | Not measured         | ~5 hours    |
 
 ## Breakout Benchmark
 
-This benchmark compares the complete system with ablations over 200 Breakout
-episodes on CUDA. Each line is the smoothed episode reward; higher values mean
-the agent collected more reward in the game.
+This quick benchmark compares the complete system with ablations over 200
+Breakout episodes on CUDA. Each line is the smoothed episode reward; higher
+values mean the agent collected more reward in the game. These are single-run
+curves, not mean +/- standard deviation across independent seeds, so they are
+descriptive and do not establish statistical module efficacy.
 
 ![Breakout benchmark](results/benchmark/proof_benchmark.png)
 

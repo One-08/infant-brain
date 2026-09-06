@@ -10,7 +10,9 @@ software version alongside each result so others can reproduce it.
 
 The Breakout benchmark compares the full system with a baseline and three
 ablations across 200 CUDA episodes. The plotted lines show smoothed episode
-reward over time. The raw traces and chart are here:
+reward over time. This is a quick, single-run comparison: it does not report
+mean +/- standard deviation across seeds or a significance test. The raw
+traces and chart are here:
 
 ![Breakout benchmark](benchmark/proof_benchmark.png)
 

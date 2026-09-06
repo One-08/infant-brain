@@ -747,7 +747,7 @@ class Brain:
         intrinsic_scale = 0.5
 
         history = {k: [] for k in ["episode", "wm_loss", "lang_loss", "reward",
-                                    "grpo_loss", "curiosity_actions", "plan_actions",
+                                    "dream_actor_loss", "curiosity_actions", "plan_actions",
                                     "corrections", "tree_size", "wellbeing",
                                     "competence", "word_diversity"]}
 
@@ -763,7 +763,7 @@ class Brain:
             prev_frame = frame.clone()
             self.world_model.reset_memory(batch_size=1, device=self.device)
             ep_rew = ep_cur = ep_plan = ep_corr = 0
-            ep_wm = ep_lang = ep_grpo = 0.0
+            ep_wm = ep_lang = ep_dream_actor = 0.0
             ep_words = set()
             intrinsic_scale = max(0.05, 0.5 * (1.0 - ep / max(episodes * 0.8, 1)))
 
@@ -1069,8 +1069,8 @@ class Brain:
                     n_dream_rounds = 2
                     dream_starts = 32
                 for _ in range(n_dream_rounds):
-                    ep_grpo = self._dream_train(replay, rng, horizon=plan_len,
-                                                n_starts=dream_starts)
+                    ep_dream_actor = self._dream_train(replay, rng, horizon=plan_len,
+                                                       n_starts=dream_starts)
 
             self._advance_stage(ep, ep_wm)
             self.value_sys.update_wm_loss(ep_wm)
@@ -1120,7 +1120,7 @@ class Brain:
 
             avg_comp = np.mean([self.monitor.competence(c) for c in concepts])
             for k, v in [("episode", ep), ("wm_loss", ep_wm), ("lang_loss", ep_lang),
-                         ("reward", float(ep_rew)), ("grpo_loss", ep_grpo),
+                         ("reward", float(ep_rew)), ("dream_actor_loss", ep_dream_actor),
                          ("curiosity_actions", total_cur), ("plan_actions", total_plan),
                          ("corrections", total_corr),
                          ("tree_size", len(self.knowledge_tree.nodes) - 1),

@@ -8,7 +8,7 @@ Infant Brain — A self-learning AI that grows like a child.
   4. Language        — grounds words in visual experience
   5. Values         — internal feedback signals guide learning
   6. Memory + Sleep — stores experiences, consolidates during sleep
-  7. Reasoning      — plans multi-step actions with GRPO
+  7. Reasoning      — plans with imagined rollouts and actor-critic learning
 """
 
 from .brain import Brain
